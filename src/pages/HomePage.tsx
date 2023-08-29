@@ -1,7 +1,6 @@
-import HeroSection from "@/components/banner/HeroSection";
-import NewFashion from "@/components/banner/newFashion/NewFashion";
-import ExclusiveBanner from "@/components/banner/smallBanner/ExclusiveBanner";
-import CategoryCard from "@/components/cards/category/CategoryCard";
+import BannerImg1 from "@/assets/banner/banner1.jpg";
+import BannerImg2 from "@/assets/banner/banner2.jpg";
+import BannerImg3 from "@/assets/banner/banner3.jpg";
 import ProductCard from "@/components/cards/product/ProductCard";
 import ProductCard2 from "@/components/cards/product/ProductCard2";
 import ProductCard3 from "@/components/cards/product/ProductCard3";
@@ -10,50 +9,71 @@ import { ChevronRight } from "lucide-react";
 const HomePage = () => {
     return (
         <div className="">
-            <HeroSection />
+            {/* HeroSection */}
+            <section>
+                <img
+                    className="h-full w-full object-cover"
+                    src={BannerImg1}
+                    alt=""
+                />
+            </section>
 
-            <ProductSections title="Mega Flash Deal">
+            {/* category section */}
+            <ProductSections title="Top Categories">
                 <div
                     className={`container grid grid-cols-1 gap-5 py-5 xsm:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4`}>
-                    {Array(10)
+                    {Array(8)
                         .fill(0)
                         .map((_, idx) => {
                             return <ProductCard2 key={idx} />;
                         })}
                 </div>
             </ProductSections>
-            <ProductSections title="Category of the Week">
-                <div
-                    className={`container grid grid-cols-1 gap-5 py-5 xsm:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6`}>
-                    {Array(10)
-                        .fill(0)
-                        .map((_, idx) => {
-                            return <CategoryCard key={idx} />;
-                        })}
+
+            {/* banner 2 */}
+            <section>
+                <div className="container">
+                    <img
+                        className="h-full w-full object-cover"
+                        src={BannerImg2}
+                        alt=""
+                    />
                 </div>
-            </ProductSections>
-            <ExclusiveBanner />
-            <ProductSections title="Low MOQ">
+            </section>
+
+            <ProductSections title="Top foods and mudi">
                 <div
-                    className={`container grid grid-cols-1 gap-5 py-5 xsm:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4`}>
-                    {Array(10)
+                    className={`container grid grid-cols-1 py-5 xsm:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6`}>
+                    {Array(12)
                         .fill(0)
                         .map((_, idx) => {
                             return <ProductCard key={idx} />;
                         })}
                 </div>
             </ProductSections>
-            <NewFashion />
-            <ProductSections title="Women's Fashion">
+
+            {/* brand section */}
+            <ProductSections title="Trusted brands">
                 <div
-                    className={`container grid grid-cols-1 gap-5 py-5 xsm:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4`}>
-                    {Array(10)
+                    className={`container grid grid-cols-1 gap-5 py-5 xsm:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6`}>
+                    {Array(12)
                         .fill(0)
                         .map((_, idx) => {
                             return <ProductCard3 key={idx} />;
                         })}
                 </div>
             </ProductSections>
+
+            {/* banner */}
+            <section>
+                <div className="container">
+                    <img
+                        className="h-full w-full object-cover"
+                        src={BannerImg3}
+                        alt=""
+                    />
+                </div>
+            </section>
         </div>
     );
 };

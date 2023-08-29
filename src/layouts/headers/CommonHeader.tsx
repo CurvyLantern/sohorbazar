@@ -1,58 +1,27 @@
 import Logo from "@/components/essentials/Logo";
+import IconBdt from "@/components/icons/IconBdt";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Link } from "react-router-dom";
+import { cn } from "@/lib/utils";
 import { useClickOutside } from "@mantine/hooks";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { BsLightningCharge } from "react-icons/bs";
+import { IoMdPricetag } from "react-icons/io";
 import {
-    Phone,
-    Truck,
-    Bell,
-    Heart,
-    ShoppingCart,
-    User,
-    Menu,
-    ChevronDown,
-} from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import MainMenu from "@/components/essentials/MainMenu";
+    TbRefresh,
+    TbSearch,
+    TbUser,
+    TbHeart,
+    TbShoppingCart,
+    TbMenu2,
+} from "react-icons/tb";
 
 const CommonHeader = () => {
     return (
-        <header>
-            {/* phone number track order login register */}
-            <div className="container flex items-center border-b border-input py-2">
-                {/* number */}
-                <a
-                    href="tel:+8801608332564"
-                    className="flex items-center gap-2 text-xs font-semibold ">
-                    <Phone size={15} />
-                    <span>+8801608-332564</span>
-                </a>
-
-                {/* order track */}
-                <Link
-                    to=""
-                    className="ml-auto flex items-center gap-2 text-xs font-semibold">
-                    <Truck size={15} />
-                    <span>Track My Order</span>
-                </Link>
-
-                <div className="ml-10 flex items-center gap-3">
-                    {/* login button */}
-                    <Link to="/login">
-                        <Button variant="outlinePrimary">Login</Button>
-                    </Link>
-                    {/* register button */}
-                    <Link to="/signup">
-                        <Button className="">Sign Up</Button>
-                    </Link>
-                </div>
-            </div>
-
+        <header className="bg-primary  text-primary-foreground">
             {/* logo search notification wishlist cart profile */}
-            <div className="container flex items-center py-9">
+            <div className="container flex items-center gap-10 py-3">
                 {/* logo */}
                 <Logo />
 
@@ -61,32 +30,30 @@ const CommonHeader = () => {
 
                 {/* bell wishlist cart */}
                 <div className="flex items-center gap-3">
-                    {/* bell */}
-                    <div className="relative">
+                    {/* user */}
+                    <div className="relative ml-5">
                         <Button
-                            variant="ghostVisible"
+                            variant="ghost"
                             size="icon"
                             className="rounded-full">
-                            <Bell size={12} />
+                            <TbUser />
                         </Button>
                         <div className="absolute right-0 top-0 flex h-0 w-0 items-center justify-center">
                             <Badge
                                 variant="count"
-                                size="round"
                                 className="absolute">
                                 13
                             </Badge>
                         </div>
                     </div>
-                    {/* bell end */}
 
                     {/* wishlist */}
                     <div className="relative">
                         <Button
-                            variant="ghostVisible"
+                            variant="ghost"
                             size="icon"
                             className="rounded-full">
-                            <Heart size={12} />
+                            <TbHeart />
                         </Button>
                         {/* if no badge info then hide this */}
                         <div className="absolute right-0 top-0  hidden h-0 w-0 items-center justify-center">
@@ -103,10 +70,10 @@ const CommonHeader = () => {
                     {/* cart */}
                     <div className="relative">
                         <Button
-                            variant="ghostVisible"
+                            variant="ghost"
                             size="icon"
                             className="rounded-full">
-                            <ShoppingCart size={12} />
+                            <TbShoppingCart />
                         </Button>
                         <div className="absolute right-0 top-0 flex h-0 w-0 items-center justify-center">
                             <Badge
@@ -117,42 +84,47 @@ const CommonHeader = () => {
                             </Badge>
                         </div>
                     </div>
-                    {/* cart end */}
-
-                    {/* user */}
-                    <div className="relative ml-5">
-                        <Button
-                            variant="ghostVisible"
-                            size="icon"
-                            className="rounded-full">
-                            <User size={12} />
-                        </Button>
-                        <div className="absolute right-0 top-0 flex h-0 w-0 items-center justify-center">
-                            <Badge
-                                variant="count"
-                                size="round"
-                                className="absolute">
-                                13
-                            </Badge>
-                        </div>
-                    </div>
-                    {/* cart end */}
+                    <p className="ml-5 grid text-xs">
+                        Your Cart
+                        <span className="flex items-center gap-1">
+                            <IconBdt />
+                            <span className=" text-base">2,650.59</span>
+                        </span>
+                    </p>
                 </div>
             </div>
 
+            {/* divider */}
+            <div className="border-b"></div>
+
             {/* all categories menu recently viewed */}
-            <div className="container flex">
+            <div className="container flex gap-10 py-2">
                 {/* browse category menu */}
-                <div className="flex items-center  gap-2 bg-primary p-2 text-sm uppercase text-primary-foreground">
-                    <Menu size={15} />
-                    <p className="mr-14">Browse categories</p>
-                    <ChevronDown size={15} />
+                <div className="flex items-center  rounded-primary bg-accent p-2 text-sm uppercase text-accent-foreground">
+                    <TbMenu2 size={15} />
+                    <p className="mx-3 font-bold">Shop By Category</p>
                 </div>
                 {/* browse category menu end */}
 
-                {/* menu */}
-                <MainMenu />
-                {/* menu end */}
+                <p className="flex items-center gap-3 text-sm">
+                    <span className="text-lg">
+                        <BsLightningCharge />
+                    </span>
+                    <span>Deals Today</span>
+                </p>
+
+                <p className="flex items-center gap-3 text-sm">
+                    <span className="text-lg">
+                        <IoMdPricetag />
+                    </span>
+                    <span>Special Prices</span>
+                </p>
+                <p className="ml-auto flex items-center gap-3 text-sm">
+                    <span className="text-lg">
+                        <TbRefresh />
+                    </span>
+                    <span>Recently Viewed</span>
+                </p>
 
                 {/* recently viewed */}
                 {/* recently viewed end */}
@@ -172,15 +144,19 @@ const SearchInput = () => {
         <div
             ref={ref}
             className={cn(
-                "ml-auto mr-auto flex rounded-primary",
+                "flex flex-1 rounded-primary ",
                 isDirty ? "ring-1 ring-primary ring-offset-1" : ""
             )}>
             <Input
                 onFocus={onClick}
-                className="w-96 rounded-s-primary py-3"
+                className="w-full rounded-s-primary py-3"
                 defaultValue="Search here"
             />
-            <Button className="rounded-e-primary rounded-s-none">Search</Button>
+            <Button
+                variant="submit"
+                className="rounded-e-primary rounded-s-none bg-input">
+                <TbSearch />
+            </Button>
         </div>
     );
 };

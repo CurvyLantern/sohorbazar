@@ -1,68 +1,50 @@
-import ProductImg from "@/assets/product.jpg";
-import Rating from "@/components/Rating";
+import ProductImg1 from "@/assets/products/Biryani.png";
+import IconBdt from "@/components/icons/IconBdt";
+import { Button } from "@/components/ui/button";
+import { TbHeart, TbShoppingBag } from "react-icons/tb";
 const ProductCard = () => {
     return (
-        <article className="">
+        <article className="group relative box-border rounded-lg border hover:rounded-b-none hover:border-2 hover:border-secondary">
             {/* product img */}
-            <div className="aspect-video w-full overflow-hidden rounded-primary">
+            <div className="aspect-square w-full overflow-hidden rounded-primary">
                 <img
-                    className="max-h-full w-full object-cover"
-                    src={ProductImg}
+                    className="h-full w-full object-contain"
+                    src={ProductImg1}
                     alt="product image"
                     width={200}
                     height={200}
                 />
             </div>
 
-            <div className="px-4 py-2">
+            <div className="px-4 py-2 text-center">
                 {/* product name */}
-                <h4 className="text-sm font-semibold capitalize text-primary">
+                <h4 className="text-lg font-semibold capitalize text-primary">
                     product name
                 </h4>
 
-                <div className="flex items-center justify-between">
-                    {/* price */}
-                    <div className="flex items-center gap-1">
-                        <span className="text-xs font-semibold uppercase">
-                            bdt
-                        </span>
-                        <div className="flex items-end">
-                            {/* current price */}
-                            <p className="text-base font-bold text-highlight">
-                                {" "}
-                                60
-                            </p>
-
-                            {/* old price */}
-                            <p className="ml-1 text-xs text-primary line-through">
-                                {" "}
-                                100
-                            </p>
-                        </div>
-                    </div>
-                    {/* rating */}
-                    {/* <div className="flex items-center gap-[2px] text-orange-600">
-            <Star size={8} fill="yellow" />
-            <Star size={8} />
-            <Star size={8} />
-            <Star size={8} />
-            <Star size={8} />
-            <span className="ml-3 text-xs text-foreground">(1)</span>
-          </div> */}
-                    <Rating
-                        avgRating={3.5}
-                        outOfRating={5}
-                        ratingCount={20}
-                    />
+                {/* price */}
+                <div className="flex items-center justify-center gap-1">
+                    <IconBdt />
+                    <p className="text-lg font-semibold">65</p>
                 </div>
+            </div>
 
-                <div className=" flex items-center justify-between text-xs">
-                    {/* sold */}
-                    <p>sold 10000</p>
+            {/* wishlist */}
+            <div className="absolute right-0 top-0 p-3 text-xl text-rose-500 group-hover:text-secondary">
+                <TbHeart />
+            </div>
 
-                    {/* in stock */}
-                    <p>50 remaining</p>
-                </div>
+            <div
+                style={{
+                    width: "calc(100% + 4px)",
+                    top: "100%",
+                    left: "-2px",
+                }}
+                className="absolute z-50 hidden rounded-lg rounded-t-none bg-background p-3 group-hover:block group-hover:border-2 group-hover:border-t-0 group-hover:border-secondary">
+                <Button className="w-full rounded-md bg-secondary py-4 text-secondary-foreground">
+                    <TbShoppingBag />
+                    Add Product
+                </Button>
             </div>
         </article>
     );
