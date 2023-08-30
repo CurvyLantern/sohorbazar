@@ -23,7 +23,7 @@ const buttonVariants = cva(
                 ghost: "hover:bg-accent/90 hover:text-accent-foreground",
                 ghostVisible:
                     "bg-disable bg-opacity-40 hover:text-accent-foreground",
-                link: "text-primary underline-offset-4 hover:underline",
+                link: "text-lg text-blue-500 underline-offset-4 hover:underline",
                 submit: "bg-input text-input-foreground hover:bg-input/90",
             },
             size: {

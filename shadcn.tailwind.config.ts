@@ -7,10 +7,6 @@ const config = {
     darkMode: ["class"],
     content: [],
     theme: {
-        container: {
-            center: true,
-            padding: "2rem",
-        },
         extend: {
             colors: {
                 border: "hsl(var(--border) / <alpha-value>)",

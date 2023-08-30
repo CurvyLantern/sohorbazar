@@ -1,4 +1,3 @@
-import React from "react";
 import { FaStar, FaStarHalfStroke } from "react-icons/fa6";
 const FeedbackCard = () => {
     return (

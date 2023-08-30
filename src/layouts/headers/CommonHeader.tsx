@@ -21,17 +21,19 @@ const CommonHeader = () => {
     return (
         <header className="bg-primary  text-primary-foreground">
             {/* logo search notification wishlist cart profile */}
-            <div className="container flex items-center gap-10 py-3">
+            <div className="container flex flex-wrap items-center justify-between gap-10 py-3 md:flex-nowrap">
                 {/* logo */}
                 <Logo />
 
                 {/* search */}
-                <SearchInput />
+                <div className="order-last min-w-full flex-1 md:order-none md:min-w-0">
+                    <SearchInput />
+                </div>
 
                 {/* bell wishlist cart */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 md:gap-3">
                     {/* user */}
-                    <div className="relative ml-5">
+                    <div className="relative ">
                         <Button
                             variant="ghost"
                             size="icon"
@@ -84,7 +86,7 @@ const CommonHeader = () => {
                             </Badge>
                         </div>
                     </div>
-                    <p className="ml-5 grid text-xs">
+                    <p className="ml-5  hidden text-xs md:grid">
                         Your Cart
                         <span className="flex items-center gap-1">
                             <IconBdt />
@@ -102,7 +104,9 @@ const CommonHeader = () => {
                 {/* browse category menu */}
                 <div className="flex items-center  rounded-primary bg-accent p-2 text-sm uppercase text-accent-foreground">
                     <TbMenu2 size={15} />
-                    <p className="mx-3 font-bold">Shop By Category</p>
+                    <p className="mx-3 hidden font-bold md:block">
+                        Shop By Category
+                    </p>
                 </div>
                 {/* browse category menu end */}
 
@@ -110,20 +114,24 @@ const CommonHeader = () => {
                     <span className="text-lg">
                         <BsLightningCharge />
                     </span>
-                    <span>Deals Today</span>
+                    <span className="hidden md:inline-block">Deals Today</span>
                 </p>
 
                 <p className="flex items-center gap-3 text-sm">
                     <span className="text-lg">
                         <IoMdPricetag />
                     </span>
-                    <span>Special Prices</span>
+                    <span className="hidden md:inline-block">
+                        Special Prices
+                    </span>
                 </p>
                 <p className="ml-auto flex items-center gap-3 text-sm">
                     <span className="text-lg">
                         <TbRefresh />
                     </span>
-                    <span>Recently Viewed</span>
+                    <span className="hidden md:inline-block">
+                        Recently Viewed
+                    </span>
                 </p>
 
                 {/* recently viewed */}

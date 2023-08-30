@@ -4,7 +4,7 @@ const ProductCard2 = () => {
         <div className="flex  rounded-2xl bg-green-100">
             {/* content */}
             <div className="flex w-full items-center p-3">
-                <p className="text-lg font-semibold">Rice and Corns</p>
+                <p className="text-lg font-semibold">চাল ও খাদ্যশস্য</p>
             </div>
             {/* img */}
             <div className="w-full p-3">

@@ -1,4 +1,4 @@
-import React from "react";
+
 import blobSvg from "../../../assets/blob.svg";
 import blobSvg1 from "../../../assets/blob1.svg";
 import { Button } from "@/components/ui/button";

@@ -4,7 +4,21 @@ import shadConfigPlugin from "./shadcn.tailwind.config";
 export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
+        container: {
+            center: true,
+            padding: "2rem",
+        },
         extend: {
+            container: {
+                screens: {
+                    xsm: "100%",
+                    sm: "640px",
+                    md: "768px",
+                    lg: "1024px",
+                    xl: "1280px",
+                    "2xl": "1536px",
+                },
+            },
             flex: Array.from({ length: 10 }, (_, idx) => idx + 1).reduce(
                 (acc, i) => {
                     // @ts-expect-error cant provide type to accumulator
